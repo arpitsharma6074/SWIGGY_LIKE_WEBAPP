@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import resList from "../utils/MockData";
+import useOnlineStatus from "../utils/useOnlineStatus";
 import RestroCard from "./RestroCard";
 import Shimmer from "./Shimmer";
-import {Link} from "react-router-dom"
 
 
 const Body= ()=>{
@@ -38,10 +39,11 @@ const Body= ()=>{
         }
     };
 
-   
+    if(useOnlineStatus() === false)return <div>Looks like you're Offline!!</div>;
     if(listOfRestro.length === 0){
         return <Shimmer/>;
     }
+    
     return (
         <div className="body">
             <div className ="filter">
@@ -50,24 +52,23 @@ const Body= ()=>{
                     </input>
                     <button className="search-btn" onClick={()=>{
                         setListOfFiltered(listOfRestro.filter((res)=>
-                        res.info.name.toLowerCase().includes(searchVal.toLowerCase()) ));
+                        res.info.name.toLowerCase().includes(searchVal.toLowerCase()) ))
                         return  listOfFiltered;
                     }}>Search</button>
                 </div>
                 <button className ="filter-btn" onClick ={(()=>{
-                    const filteredList = resList.filter((res)=>res.info.avgRating>4.5);
+                    const filteredList = resList.filter((res)=>res.info.avgRating>4.5)
                     setListOfRestro(filteredList);
                 })}>
                     Top Restaurant
                 </button>
             </div>
             <div className ="restaurant-container">
-               
                 {
-                listOfFiltered.map((res) => <Link 
-                key={res.info.id} to={"restaurant/" + res.info.id}><RestroCard  resData = {res}/>
-                </Link>)
-                };
+                    listOfFiltered.map((res) => <Link 
+                    key={res.info.id} to={"restaurant/" + res.info.id}><RestroCard  resData = {res}/>
+                    </Link>)
+                }
             </div>
         </div>
     );

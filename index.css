@@ -1,13 +1,18 @@
-.header{
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+/* .header{
     display:flex;
     justify-content: space-between;
     border: 2px solid black;
-}
+} 
 .logo{
     width: 100px;
 }
 .nav_items{
-    /* display: flex; */
     padding: 0px 20px;
 }
 .nav_items > ul{
@@ -22,15 +27,13 @@
 .restaurant-container{
     display: flex;
     flex-wrap: wrap;
-    /* width: 100px;
-    height: 100px;  */ 
+    
      justify-content:space-evenly;
     padding: 5px;
 }
 .restaurant-card{
     width: 200px;
     padding: 5px;
-    /* height: 350px; */
     
     background-color: #f0f0f0;
 }
@@ -64,3 +67,4 @@
 .filter{
     display: flex;
 }
+*/
