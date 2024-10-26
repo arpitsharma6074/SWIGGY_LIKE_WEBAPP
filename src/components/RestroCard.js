@@ -5,9 +5,9 @@ import {CDN_URL} from "../utils/constants";
 const RestroCard =(props)=>{
     const {resData} = props;
     return (
-        <div className="restaurant-card">
+        <div className=" justify-between w-50 p-1" /*restaurant-card*/>
             <img
-            className="res-logo"
+            className="w-36 h-40 "
             alt="res-logo"
             src = {CDN_URL + resData.info.cloudinaryImageId}></img>
             <h3>{resData.info.name}</h3> 

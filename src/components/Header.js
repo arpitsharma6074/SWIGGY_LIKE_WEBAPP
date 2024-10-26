@@ -8,12 +8,12 @@ const Header = ()=>{
     const [btnVal,setBtnVal] = useState("Login");
     const onlineStatus = useOnlineStatus();
     return(
-        <div className="header">
+        <div className="flex justify-between bg-pink-100 h-22">
             <div className="logo-container">
-                <img className="logo" src ={ LOGO_URL} ></img>
+                <img className="w-36 " src ={ LOGO_URL} ></img>
             </div>
-            <div className="nav_items">
-                <ul>
+            <div className="py-4">
+                <ul className="flex m-2 p-2 ">
                     <li>
                         Online status : {onlineStatus?"🟢":"🔴"}
                     </li>

@@ -47,7 +47,7 @@ const Body= ()=>{
     return (
         <div className="body">
             <div className ="filter">
-                <div className="search">
+                <div className="flex">
                     <input type="text" className="search-box" value={searchVal} onChange={(e)=>setSearchVal(e.target.value)}>
                     </input>
                     <button className="search-btn" onClick={()=>{
@@ -63,7 +63,7 @@ const Body= ()=>{
                     Top Restaurant
                 </button>
             </div>
-            <div className ="restaurant-container">
+            <div className =/*restaurant-container*/"flex ">
                 {
                     listOfFiltered.map((res) => <Link 
                     key={res.info.id} to={"restaurant/" + res.info.id}><RestroCard  resData = {res}/>
